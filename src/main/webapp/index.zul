@@ -1,0 +1,28 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+	<window apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('com.sinau.springzk.viewmodel.IndexVM')"
+		validationMessages="@id('vmsgs')">
+		
+		<tabbox>
+			<tabs>
+				<tab label="Count" />
+				<tab label="List" />
+			</tabs>
+			<tabpanels>
+				<tabpanel>
+					<hlayout>count: <label value="@load(vm.count)" /></hlayout>
+					<button label="add" onClick="@command('cmd')"/>
+					<button label="Move Page" onClick="@command('changePage')"/>
+				</tabpanel>
+				<tabpanel>
+					<include id="incList"
+							 width="100%"
+							 height="100%"
+							 src="/mainlist.zul" />
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+		
+	</window>
+</zk>

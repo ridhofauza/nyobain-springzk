@@ -1,0 +1,24 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+	<!-- <window apply="org.zkoss.bind.BindComposer" 
+		title="List User" border="normal"
+		viewModel="@id('fm') @init('com.sinau.springzk.viewmodel.MainListVM')"> -->
+	<window apply="org.zkoss.bind.BindComposer" 
+		title="List User" border="normal"
+		viewModel="@id('fm') @init('com.sinau.springzk.viewmodel.MainListVM', params=vm.params)">
+		<groupbox>
+			<listbox id="box" model="@load(fm.userData)">
+				<listhead sizable="true">
+					<listheader label="name" sort="auto" />
+					<listheader label="gender" sort="auto" />
+				</listhead>
+				<template name="model" status="s" var="item">
+					<listitem>
+						<listcell label="@load(item.name)" />
+						<listcell label="@load(item.gender)" />
+					</listitem>
+				</template>
+			</listbox>
+		</groupbox>
+	</window>
+</zk>
