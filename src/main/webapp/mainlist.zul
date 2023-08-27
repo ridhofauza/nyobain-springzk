@@ -11,11 +11,16 @@
 				<listhead sizable="true">
 					<listheader label="name" sort="auto" />
 					<listheader label="gender" sort="auto" />
+					<listheader label="action" />
 				</listhead>
 				<template name="model" status="s" var="item">
 					<listitem>
 						<listcell label="@load(item.name)" />
 						<listcell label="@load(item.gender)" />
+						<listcell>
+							<button onClick="@command('btnEdit', userId=item.id)" label="Edit" />
+							<button onClick="@command('btnDelete', user=item)" label="Delete" />
+						</listcell>
 					</listitem>
 				</template>
 			</listbox>

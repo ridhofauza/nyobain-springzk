@@ -1,2 +1,35 @@
-<zk>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+	<window apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('em') @init('com.sinau.springzk.viewmodel.EditVM')"
+		title="Edit User" border="normal"
+		width="250px" closable="true"
+		validationMessages="@id('vmsgs')"
+		form="@id('fmu') @load(em.user) @save(em.user, before='btnUpdate') @validator('com.sinau.springzk.validation.FormValidator')">
+		<groupbox>
+			<grid style="border: 0px">
+				<rows>
+					<row>
+						<vlayout>
+							Name
+							<textbox value="@bind(fmu.name)" 
+								width="100%" />
+							<label style="color: red" value="@load(vmsgs['name'])" />
+						</vlayout>
+					</row>
+					<row>
+						<vlayout>
+							Gender
+							<textbox width="100%"
+								value="@bind(fmu.gender)" />
+							<label style="color: red" value="@load(vmsgs['gender'])" />
+						</vlayout>
+					</row>
+					<row style="display: flex; justify-content: end;">
+						<button onClick="@command('btnUpdate')"
+							label="Update" />
+					</row>
+				</rows>
+			</grid>
+		</groupbox>
+	</window>
 </zk>

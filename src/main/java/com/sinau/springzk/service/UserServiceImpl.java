@@ -3,6 +3,7 @@ package com.sinau.springzk.service;
 import java.util.ArrayList;
 
 import com.sinau.springzk.dao.User;
+import com.sinau.springzk.repository.UserRepository;
 import com.sinau.springzk.repository.UserRepositoryImpl;
 
 public class UserServiceImpl implements UserService {
@@ -28,9 +29,10 @@ public class UserServiceImpl implements UserService {
 	public User delete(Integer id) {
 		return userRepository.delete(id);
 	}
-	
+
 	public void setUserRepository(UserRepositoryImpl userRepository) {
 		this.userRepository = userRepository;
 	}
+	
 
 }
