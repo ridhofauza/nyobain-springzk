@@ -3,10 +3,13 @@
 	<!-- <window apply="org.zkoss.bind.BindComposer" 
 		title="List User" border="normal"
 		viewModel="@id('fm') @init('com.sinau.springzk.viewmodel.MainListVM')"> -->
-	<window apply="org.zkoss.bind.BindComposer" 
-		title="List User" border="normal"
+	<window apply="org.zkoss.bind.BindComposer" title="List User"
+		border="normal"
 		viewModel="@id('fm') @init('com.sinau.springzk.viewmodel.MainListVM', params=vm.params)">
 		<groupbox>
+			<vlayout style="padding: 5px 0px">
+				<button onClick="@command('cmdAddData')" label="Tambah Data" />
+			</vlayout>
 			<listbox id="box" model="@load(fm.userData)">
 				<listhead sizable="true">
 					<listheader label="name" sort="auto" />
@@ -18,8 +21,12 @@
 						<listcell label="@load(item.name)" />
 						<listcell label="@load(item.gender)" />
 						<listcell>
-							<button onClick="@command('btnEdit', userId=item.id)" label="Edit" />
-							<button onClick="@command('btnDelete', user=item)" label="Delete" />
+							<button
+								onClick="@command('btnEdit', userId=item.id)" label="Edit" />
+							<button
+								onClick="@command('btnDelete', user=item)" label="Delete" />
+							<button
+								onClick="@command('printIdCard')" label="ID Card" />
 						</listcell>
 					</listitem>
 				</template>

@@ -10,6 +10,7 @@ import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.ContextParam;
 import org.zkoss.bind.annotation.ContextType;
 import org.zkoss.bind.annotation.ExecutionArgParam;
+import org.zkoss.bind.annotation.GlobalCommand;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Executions;
@@ -45,6 +46,12 @@ public class MainListVM {
 		System.out.println("test list");
 	}
 	
+	@Command("cmdAddData")
+	public void btnTambahData(@ContextParam(ContextType.VIEW) Window window) {
+		Window winIdentifyUpdate = (Window) Executions.createComponents("/addlist.zul", window, null);
+		winIdentifyUpdate.doModal();
+	}
+	
 	@Command
 	public void btnEdit(@ContextParam(ContextType.VIEW) Window window, @BindingParam("userId") Integer userId) {
 		// Show Modal
@@ -57,7 +64,6 @@ public class MainListVM {
 	}
 	
 	@Command
-	@NotifyChange("userData")
 	public void btnDelete(@BindingParam("user") final User user) {
 		//Messagebox.show("Apakah Anda yakin ingin menghapus data \"\" ?");
 		Messagebox.show("Apakah Anda yakin ingin menghapus data \""+ user.getName() +"\" ?", "Confirmation", Messagebox.OK | Messagebox.CANCEL, Messagebox.INFORMATION, new EventListener<Event>() {
@@ -74,6 +80,15 @@ public class MainListVM {
 			
 		});
 	}
+	
+	@Command("printIdCard")
+	public void generateIdCard() {
+		System.out.println("Generate ID Card");
+	}
+	
+	@GlobalCommand
+	@NotifyChange("userData")
+	public void refreshUserData() {}
 
 	public ArrayList<User> getUserData() {
 		return userData;

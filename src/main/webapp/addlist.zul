@@ -1,17 +1,17 @@
 <zk xmlns="http://www.zkoss.org/2005/zul">
 	<window apply="org.zkoss.bind.BindComposer"
-		viewModel="@id('em') @init('com.sinau.springzk.viewmodel.EditVM')"
-		title="Edit User" border="normal"
+		viewModel="@id('am') @init('com.sinau.springzk.viewmodel.AddVM')"
+		title="Add User" border="normal"
 		width="250px" closable="true"
 		validationMessages="@id('vmsgs')"
-		form="@id('fmu') @load(em.user) @save(em.user, before='btnUpdate') @validator('com.sinau.springzk.validation.FormValidator')">
+		form="@id('fsu') @load(am.user) @save(am.user, before='btnSave') @validator('com.sinau.springzk.validation.FormValidator')">
 		<groupbox>
 			<grid style="border: 0px">
 				<rows>
 					<row>
 						<vlayout>
 							Name
-							<textbox value="@bind(fmu.name)" 
+							<textbox value="@bind(fsu.name)" 
 								width="100%" />
 							<label style="color: red" value="@load(vmsgs['name'])" />
 						</vlayout>
@@ -20,14 +20,14 @@
 						<vlayout>
 							Gender
 							<!-- <textbox width="100%"
-								value="@bind(fmu.gender)" /> -->
-							<combobox width="100%" model="@load(em.genderItem)" value="@bind(fmu.gender)" selectedItem="@bind(fmu.gender)" readonly="true" />
+								value="@bind(fsu.gender)" /> -->
+							<combobox width="100%" model="@load(am.genderItem)" value="@bind(fsu.gender)" readonly="true" placeholder="-- Select Gender --" />
 							<label style="color: red" value="@load(vmsgs['gender'])" />
 						</vlayout>
 					</row>
 					<row style="display: flex; justify-content: end;">
-						<button onClick="@command('btnUpdate')"
-							label="Update" />
+						<button onClick="@command('btnSave')"
+							label="Save" />
 					</row>
 				</rows>
 			</grid>

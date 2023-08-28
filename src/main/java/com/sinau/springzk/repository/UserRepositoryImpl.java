@@ -2,6 +2,7 @@ package com.sinau.springzk.repository;
 
 import java.util.ArrayList;
 import com.sinau.springzk.dao.User;
+import com.sinau.springzk.utils.GenderEnum;
 
 public class UserRepositoryImpl implements UserRepository {
 
@@ -12,10 +13,10 @@ public class UserRepositoryImpl implements UserRepository {
 	}
 	
 	public void buildUsers() {		
-		users.add(new User(1, "Ali", "Male"));
-		users.add(new User(2, "Bima", "Male"));
-		users.add(new User(3, "Cika", "Female"));
-		users.add(new User(4, "Dinda", "Female"));
+		users.add(new User(1, "Ali", GenderEnum.MALE.getValue()));
+		users.add(new User(2, "Bima", GenderEnum.MALE.getValue()));
+		users.add(new User(3, "Cika", GenderEnum.FEMALE.getValue()));
+		users.add(new User(4, "Dinda", GenderEnum.FEMALE.getValue()));
 	}
 	
 	public ArrayList<User> findAll() {

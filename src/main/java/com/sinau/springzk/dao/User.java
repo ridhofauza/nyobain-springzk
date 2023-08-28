@@ -36,4 +36,10 @@ public class User {
 	public String getGender() {
 		return gender;
 	}
+
+	@Override
+	public String toString() {
+		return "[ Id: " + getId() + ", Name: "+ getName() +", Gender: "+ getGender() +" ]";
+	}
+	
 }
