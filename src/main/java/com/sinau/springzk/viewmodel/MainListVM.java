@@ -82,8 +82,14 @@ public class MainListVM {
 	}
 	
 	@Command("printIdCard")
-	public void generateIdCard() {
+	public void generateIdCard(@ContextParam(ContextType.VIEW) Window window, @BindingParam("user") User user) {
 		System.out.println("Generate ID Card");
+		System.out.println("Generate ID Card: " + user.toString());
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("user", user);
+		params.put("title", user.getName());
+		Window winIdentifyUpdate = (Window) Executions.createComponents("/report.zul", window, params);
+		winIdentifyUpdate.doModal();
 	}
 	
 	@GlobalCommand

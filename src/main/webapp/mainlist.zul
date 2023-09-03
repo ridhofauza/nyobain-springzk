@@ -26,7 +26,7 @@
 							<button
 								onClick="@command('btnDelete', user=item)" label="Delete" />
 							<button
-								onClick="@command('printIdCard')" label="ID Card" />
+								onClick="@command('printIdCard', user=item)" label="ID Card" />
 						</listcell>
 					</listitem>
 				</template>

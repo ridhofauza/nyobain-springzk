@@ -1,0 +1,25 @@
+<zk xmlns="http://www.zkoss.org/2005/zul">
+	<window apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('rm') @init('com.sinau.springzk.viewmodel.ReportVM')"
+		title="@load(rm.titleIdCard)" width="800px" mode="modal" closable="true" height="600px"
+		maximizable="true" minimizable="true" sizable="true">
+		
+		<grid>
+			<columns>
+				<column width="20%"/>
+				<column />
+			</columns>
+			<rows>
+				<row>
+					<label value="ID Card PDF" />
+					<button label="Download" onClick="@command('download')" />
+				</row>
+			</rows>
+		</grid>
+		
+		<vbox align="stretch" width="100%" height="100%">
+			<iframe id="reportframe" width="500px" height="500px" />
+		</vbox>
+		
+	</window>
+</zk>

@@ -18,6 +18,7 @@
 	<bean id="userService" class="com.sinau.springzk.service.UserServiceImpl">
 		<property name="userRepository" ref="userRepository" />
 	</bean>
+	<bean id="reportService" class="com.sinau.springzk.service.ReportServiceImpl" />
 	<!-- End Coba - Coba -->
 	
 	 <!-- <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
